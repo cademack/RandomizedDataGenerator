@@ -4,12 +4,12 @@ import java.lang.Math;
  * Picks a random number based on an associative array of numbers
  * and respective probabilities
  * 
- * @author --------
- * @version -------
+ * @author Cade Mack
+ * @version January 28, 2020
  */
-public class Randomizer {
+public class Randomizer<T extends Object> {
     
-    private ArrayList<Integer> replay;
+    private ArrayList<T> replay;
     
     /**
      * Default constructor, initializes the replay ArrayList
@@ -31,14 +31,14 @@ public class Randomizer {
      * @param map The map that connects integers to their probabilities of being outputted
      * @return the integer that is generated
      */
-    public int randNum(Map<Integer, Double> map) {
+    public T randNum(Map<T, Double> map) {
         double rand = Math.random(); //Random Double value, from 0.0 to 0.99999
-        int out = 0; //Placeholder value
+        T out = null; //Placeholder value
         /*
         Assuming that the probabilities in the map add up to 1,
         then this zero should never be returned.
         */
-        for (Integer i : map.keySet()) {
+        for (T i : map.keySet()) {
             /*
             So each probability is subtracted from the random double until it is negative
             Then the last probability to make it negative is correlated to the number to be returned
@@ -69,7 +69,7 @@ public class Randomizer {
      * This returns the list of all the generated numbers
      * @return the list of generated numbers
      */
-    public ArrayList<Integer> getReplayList() {
+    public ArrayList<T> getReplayList() {
         return replay;
     }
 }
