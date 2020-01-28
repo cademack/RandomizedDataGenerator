@@ -11,10 +11,10 @@ import java.util.*;
  */
 public class Driver {
     public static void main(String args[]) {
-        Randomizer instance = new Randomizer();
-        Map<Integer, Double> numProbs = new HashMap();
-        Map<Integer, Integer> counts = new HashMap();
-        int out = 0;
+        Randomizer<Integer> instance = new Randomizer<Integer>();
+        Map<Integer, Double> numProbs = new HashMap<Integer, Double>();
+        Map<Integer, Integer> counts = new HashMap<Integer, Integer>();
+        Integer out = 0;
         for (int i = 1; i < 100; i ++) {
             numProbs.put(i, .01);
             counts.put(i, 0);
